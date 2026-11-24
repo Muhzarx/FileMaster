@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="FileMaster Mobile — toolkit file praktis, privat, dan gratis.">
+  <title>FileMaster Mobile</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="FileMaster"><span class="brand-mark">F</span><span>File<span class="accent">Master</span></span></a>
+    <button class="icon-btn" id="themeBtn" aria-label="Ganti tema">☼</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><i></i> YOUR PERSONAL FILE TOOLKIT</div>
+      <h1>Urus file jadi<br><span>lebih simpel.</span></h1>
+      <p>Kompres, konversi, arsipkan, dan kelola file langsung dari perangkatmu.</p>
+      <div class="actions"><button class="btn primary" id="pickHero">＋ Pilih File</button><button class="btn secondary" id="installBtn" hidden>Pasang aplikasi</button></div>
+      <div class="privacy"><span>⌑</span> File diproses di perangkat. Tidak diunggah ke server.</div>
+    </section>
+    <section class="summary-card">
+      <div class="summary-head"><div><small>FILE DALAM SESI INI</small><strong id="fileCount">0 file</strong></div><span class="summary-icon">▤</span></div>
+      <div class="progress"><span id="storageFill"></span></div>
+      <div class="summary-foot"><span id="storageText">Pilih file untuk memulai</span><b id="storageSize">0 B</b></div>
+    </section>
+    <section class="section" id="toolsSection">
+      <div class="section-title"><div><small>RUANG KERJA</small><h2>Alat pilihan</h2></div><span class="pill">6 TOOLS</span></div>
+      <div class="tool-grid">
+        <button class="tool-card" data-tool="files"><span class="tool-icon blue">▤</span><b>File saya</b><small>Kelola file pilihan</small></button>
+        <button class="tool-card" data-tool="compress"><span class="tool-icon violet">◩</span><b>Kompres gambar</b><small>Perkecil ukuran foto</small></button>
+        <button class="tool-card" data-tool="convert"><span class="tool-icon green">⇄</span><b>Konversi gambar</b><small>JPG, PNG, WebP</small></button>
+        <button class="tool-card" data-tool="archive"><span class="tool-icon orange">▣</span><b>ZIP & ekstrak</b><small>Buat atau buka ZIP</small></button>
+        <button class="tool-card" data-tool="text"><span class="tool-icon pink">T</span><b>Alat teks</b><small>Hitung dan rapikan teks</small></button>
+        <button class="tool-card" data-tool="details"><span class="tool-icon cyan">ⓘ</span><b>Info file</b><small>Lihat detail file</small></button>
+      </div>
+    </section>
+    <section class="section" id="fileSection">
+      <div class="section-title"><div><small>PENYIMPANAN LOKAL</small><h2>File saya</h2></div><button class="link-btn" id="pickMore">＋ Tambah</button></div>
+      <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari nama file..."></label>
+      <div id="fileList" class="file-list"><div class="empty"><div>▤</div><b>Belum ada file</b><p>Pilih file dari perangkat untuk mulai mengelolanya.</p><button class="btn secondary" id="emptyPick">Pilih File</button></div></div>
+    </section>
+    <section class="section panel" id="toolPanel" hidden>
+      <div class="section-title"><div><small>TOOLKIT</small><h2 id="panelTitle">Alat</h2></div><button class="icon-btn" id="closePanel">×</button></div>
+      <div id="panelBody"></div>
+    </section>
+    <section class="section about" id="aboutSection">
+      <div class="section-title"><div><small>TENTANG APLIKASI</small><h2>FileMaster Mobile</h2></div></div>
+      <p>Toolkit file ringan yang mengutamakan kemudahan dan privasi. Pilih file yang ingin diproses, lalu gunakan alat yang tersedia.</p>
+      <div class="about-row"><span>Versi</span><b>1.1.0</b></div>
+      <div class="about-row"><span>Platform</span><b>Web / Android PWA</b></div>
+    </section>
+  </main>
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-nav="home"><span>⌂</span>Beranda</button>
+    <button class="nav-item" data-nav="files"><span>▤</span>File</button>
+    <button class="nav-item" data-nav="tools"><span>▦</span>Alat</button>
+    <button class="nav-item" data-nav="about"><span>ⓘ</span>Info</button>
+  </nav>
+  <footer class="app-footer">
+    <div class="footer-brand">File<span class="accent">Master</span></div>
+    <p>© 2026 Muhammad Hafizd Anshari</p>
+    <p>All Rights Reserved.</p>
+    <p>Designed &amp; Developed by <strong>Muhammad Hafizd Anshari</strong></p>
+  </footer>
+</div>
+<input type="file" id="filePicker" multiple hidden>
+<input type="file" id="zipPicker" accept=".zip,application/zip" hidden>
+<div class="toast" id="toast" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
